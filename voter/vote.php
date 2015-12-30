@@ -23,11 +23,11 @@
   function vote($ballot, $votes) {
     global $conn;
     $sql = "UPDATE votes SET " + $ballot + " = " + (string)$votes;
-    echo $sql + "<br>";
+    echo $sql;
     return $conn->query($sql);
   }
   $ballot = $_REQUEST["ballot"];
-  echo $ballot + "<br>";
+  echo $ballot;
   $votes_to_insert = getVotes($ballot) + 1;
   $success = vote($ballot, $votes_to_insert);
   if ($success === TRUE) {
