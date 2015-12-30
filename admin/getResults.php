@@ -12,7 +12,7 @@
     die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "SELECT * FROM voting";
+  $sql = "SELECT * FROM votes";
   $result = $conn->query($sql);
   echo json_encode($result->fetch_assoc());
 ?>
