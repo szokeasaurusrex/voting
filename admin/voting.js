@@ -14,7 +14,8 @@ app.controller("voting", function ($scope) {
       $scope.btn_action = "Start";
       $.get("getResults.php", null, function(result) {
         $scope.yes_votes = result.yes;
-        $scope.no_votes = result.no;
+        $scope.no_votes = result.no
+        $scope.$apply();
       }, "json");
     }
   };
