@@ -23,7 +23,7 @@
   function vote($ballot, $votes) {
     global $conn;
     $sql = "UPDATE votes SET " + $ballot + " = " + (string)$votes;
-    echo $sql + "<br>"
+    echo $sql + "<br>";
     return $conn->query($sql);
   }
   $ballot = $_REQUEST["ballot"];
