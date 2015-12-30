@@ -12,7 +12,10 @@ app.controller("voting", function ($scope) {
     } else {
       $scope.voting = false;
       $scope.btn_action = "Start";
-      $.get("getResults.php", null);
+      $.get("getResults.php", null, function(result) {
+        $scope.yes_votes = result[0];
+        $scope.no_votes = result[1];
+      }, "json");
     }
   };
 });

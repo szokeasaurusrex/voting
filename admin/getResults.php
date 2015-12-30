@@ -12,6 +12,7 @@
     die("Connection failed: " . $conn->connect_error);
   }
 
-  $sql = "SELECT yes FROM voting";
-  echo $conn->query($sql);
+  $sql = "SELECT * FROM voting";
+  $result = $conn->query($sql);
+  echo $result->fetch_assoc();
 ?>
