@@ -8,8 +8,8 @@ app.controller("voter", function($scope) {
       if (response == "success") {
         alert("You're vote was successfully processed.");
       } else {
-        alert("Error: You're vote could not be processed correctly.")
+        alert("Error: You're vote could not be processed correctly.");
       }
-    }, "text")
+    }, "text");
   };
 });
