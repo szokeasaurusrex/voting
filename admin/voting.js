@@ -15,13 +15,15 @@ app.controller("voting", function ($scope) {
         } else {
           $scope.voting_status = response;
         }
+        $scope.$apply();
       }, "text");
     } else {
       $scope.voting = false;
       $scope.btn_action = "Start";
       $.get("getResults.php", null, function(result) {
         $scope.yes_votes = result.yes;
-        $scope.no_votes = result.no
+        $scope.no_votes = result.no;
+        $scope.voting_status = "";
         $scope.$apply();
       }, "json");
     }
