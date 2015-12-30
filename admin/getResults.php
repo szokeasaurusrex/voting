@@ -14,5 +14,5 @@
 
   $sql = "SELECT * FROM voting";
   $result = $conn->query($sql);
-  echo $result->fetch_assoc();
+  echo json_encode($result->fetch_assoc());
 ?>
