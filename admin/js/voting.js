@@ -1,14 +1,15 @@
 app.controller("voting", function ($scope) {
   $scope.voting = false;
-  $scope.votingStatus = "";
+  $scope.voting_status = "";
   $scope.btn_action = "Start";
   $scope.yes_votes = 0;
   $scope.no_votes = 0;
   $scope.updateVotingStatus = function(response) {
+    console.log("function")
     if (response == "start") {
-      $scope.votingStatus = "Voting in progress";
+      $scope.voting_status = "Voting in progress";
     } else {
-      $scope.votingStatus = response;
+      $scope.voting_status = response;
     }
   }
   $scope.btnClick = function () {
