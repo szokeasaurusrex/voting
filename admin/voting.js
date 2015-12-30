@@ -13,8 +13,8 @@ app.controller("voting", function ($scope) {
       $scope.voting = false;
       $scope.btn_action = "Start";
       $.get("getResults.php", null, function(result) {
-        $scope.yes_votes = result[0];
-        $scope.no_votes = result[1];
+        $scope.yes_votes = result.yes;
+        $scope.no_votes = result.no;
       }, "json");
     }
   };
