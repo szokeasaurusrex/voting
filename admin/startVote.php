@@ -2,7 +2,7 @@
   $servername = "localhost";
   $username = "voting";
   $password = "";
-  $dbName = "voting"
+  $dbName = "voting";
 
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbName);
