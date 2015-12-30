@@ -1,7 +1,7 @@
 app.controller("voter", function($scope) {
   $scope.vote = function (ballot) {
     data = {
-      ballot: "";
+      ballot: ""
     };
     data.ballot = ballot;
     $.get("vote.php", data, function(response) {
