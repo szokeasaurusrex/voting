@@ -12,27 +12,17 @@
     die("Connection failed: " . $conn->connect_error);
   }
 
-  function getVotes($ballot) {
-    global $conn;
-    $sql = "SELECT * FROM votes";
-    $result = $conn->query($sql);
-    $data = $result->fetch_assoc();
-    $votes_string = $data[$ballot];
-    return intval($votes_string);
-  }
-  function vote($ballot, $votes) {
-    global $conn;
-    $sql = "UPDATE votes SET " + $ballot + " = " + (string)$votes;
-    echo $sql;
-    return $conn->query($sql);
-  }
   $ballot = $_REQUEST["ballot"];
-  echo $ballot;
-  $votes_to_insert = getVotes($ballot) + 1;
-  $success = vote($ballot, $votes_to_insert);
+  if ($ballot == "yes") {
+    $sql = "UPDATE votes SET yes = yes + 1";
+  } else if ($ballot == "no"){
+    $sql = "UPDATE votes SET no = no + 1";
+  }
+  $success = $conn->query($sql);
   if ($success === TRUE) {
     echo "success";
   } else {
     echo "fail";
   }
+  $conn->close();
 ?>
