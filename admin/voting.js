@@ -8,17 +8,11 @@ app.controller("voting", function ($scope) {
     if ($scope.voting == false) {
       $scope.voting = true;
       $scope.btn_action = "Stop";
-      $.get("startVote.php", null, function(response) {
-        console.log("function")
-        if (response == "start") {
-          $scope.voting_status = "Voting in progress";
-        } else {
-          $scope.voting_status = response;
-        }
-      }, "text");
+      $.get("startVote.php", null);
     } else {
       $scope.voting = false;
       $scope.btn_action = "Start";
+      $.get("getResults.php", null);
     }
   };
 });
