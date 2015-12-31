@@ -20,7 +20,7 @@
   $voters = array();
   if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
-      array_push($voters, $row.name);
+      array_push($voters, $row["name"]);
     }
   }
   $data = array("votes"=>$votes, "voters"=>$voters);
