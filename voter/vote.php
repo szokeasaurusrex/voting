@@ -29,7 +29,9 @@
   }
   if ($voted === false) {
     $sql = "INSERT INTO voters VALUES ($name)";
-    $conn->query($sql);
+    if ($conn->query($sql) !== TRUE) {
+      echo "Fail: " . $conn->error;
+    }
     if ($ballot == "yes") {
       $sql = "UPDATE votes SET yes = yes + 1";
     } else if ($ballot == "no"){
