@@ -1,6 +1,7 @@
 app.controller("voter", function($scope) {
   $scope.processing = false;
   $scope.vote = function (ballot) {
+    console.log($scope.processing);
     if ($scope.processing === false) {
       $scope.processing = true;
       data = {
