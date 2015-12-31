@@ -9,8 +9,8 @@ app.controller("voting", function ($scope) {
     if ($scope.voting == false) {
       $scope.voting = true;
       $scope.btn_action = "Stop";
+      $scope.voters = [];
       $.get("startVote.php", null, function(response) {
-        console.log("function")
         if (response == "start") {
           $scope.voting_status = "Voting in progress";
         } else {
@@ -21,7 +21,6 @@ app.controller("voting", function ($scope) {
       $scope.autoRefresh = setInterval(function() {
         $.get("autoRefresh.php", null, function(result) {
           $scope.voters = result;
-          console.log($scope.voters);
           $scope.$apply();
         }, "json");
       }, 500);
@@ -37,6 +36,7 @@ app.controller("voting", function ($scope) {
         $scope.voting_status = "";
         $scope.$apply();
       }, "json");
+      cancelInterval($scope.autoRefresh);
     }
   };
 });
