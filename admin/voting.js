@@ -21,6 +21,7 @@ app.controller("voting", function ($scope) {
       $scope.autoRefresh = setInterval(function() {
         $.get("autoRefresh.php", null, function(result) {
           $scope.voters = result;
+          console.log($scope.voters);
           $scope.$apply();
         }, "json");
       }, 500);
