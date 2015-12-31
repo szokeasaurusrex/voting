@@ -11,7 +11,7 @@ app.controller("voter", function($scope) {
     console.log($scope.processing);
     if ($scope.usr_name_confirmed === false) {
       var confirmation = confirm("Press OK to vote as " + $scope.usr_name);
-      if (confirmation !== false) {
+      if (confirmation === false) {
         return 0;
       }
       sesssionStorage.usr_name = $scope.usr_name;
