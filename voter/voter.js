@@ -14,7 +14,7 @@ app.controller("voter", function($scope) {
       if (confirmation === false) {
         return 0;
       }
-      sesssionStorage.usr_name = $scope.usr_name;
+      sessionStorage.usr_name = $scope.usr_name;
       $scope.usr_name_confirmed = true;
     }
     if ($scope.processing === false) {
