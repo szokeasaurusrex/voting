@@ -10,7 +10,7 @@ app.controller("voter", function($scope) {
   $scope.vote = function (ballot) {
     console.log($scope.processing);
     if ($scope.usr_name_confirmed === false) {
-      var confirmation = prompt("Press OK to vote as " + $scope.usr_name);
+      var confirmation = confirm("Press OK to vote as " + $scope.usr_name);
       if (confirmation !== false) {
         return 0;
       }
