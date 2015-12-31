@@ -13,7 +13,7 @@
   }
 
   $ballot = $_REQUEST["ballot"];
-  $name = $_REQUEST["name"];
+  $name = (string) $_REQUEST["name"];
   $sql = "SELECT * FROM voters";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
