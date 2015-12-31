@@ -22,6 +22,7 @@ app.controller("voting", function ($scope) {
       $scope.voting = false;
       $scope.btn_action = "Start";
       $.get("getResults.php", null, function(result) {
+        console.log(result);
         var votes = result.votes;
         $scope.voters = result.voters;
         $scope.yes_votes = votes.yes;
