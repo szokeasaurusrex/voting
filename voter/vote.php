@@ -26,10 +26,10 @@
     }
   } else {
     $voted = false;
-    $sql = "INSERT INTO voters VALUES ($name)";
-    $conn->query($sql);
   }
   if ($voted === false) {
+    $sql = "INSERT INTO voters VALUES ($name)";
+    $conn->query($sql);
     if ($ballot == "yes") {
       $sql = "UPDATE votes SET yes = yes + 1";
     } else if ($ballot == "no"){
