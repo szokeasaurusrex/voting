@@ -7,16 +7,27 @@
     <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
   </head>
   <body ng-app="voterApp" ng-controller="voter">
-    <div class="col-lg-6">
-      <button class="btn btn-lg btn-success btn-block" ng-click="vote('yes')">
-        <h1>Yes</h1>
-      </button>
-    </div>
+    <div class="container">
+      <div class="col-lg-6">
+        <button class="btn btn-lg btn-success btn-block" ng-click="vote('yes')">
+          <h1>Yes</h1>
+        </button>
+      </div>
 
-    <div class="col-lg-6">
-      <button class="btn btn-lg btn-danger btn-block" ng-click="vote('no')">
-        <h1>No</h1>
-      </button>
+      <div class="col-lg-6">
+        <button class="btn btn-lg btn-danger btn-block" ng-click="vote('no')">
+          <h1>No</h1>
+        </button>
+      </div>
+    </div>
+    <div class="container" ng-show="usr_name_confirmed">
+      <h1>{{ usr_name }}</h1>
+    </div>
+    <div class="container" ng-hide="usr_name_confirmed">
+      <p>
+        Please enter your name:<br>
+        <input type="text" ng-model="usr_name">
+      </p>
     </div>
 
     <!-- JS libraries -->

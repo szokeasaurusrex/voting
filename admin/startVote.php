@@ -18,6 +18,8 @@
   } else {
     echo "Fail: " . $conn->error;
   }
+  $sql = "DELETE FROM voters";
+  $conn->query($sql);
 
   $conn->close();
 ?>

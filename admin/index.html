@@ -23,10 +23,22 @@
       <div class="col-md-4">
         <h2>Results</h2>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8" ng-hide="voting">
         <h2>{{ yes_votes }} people voted yes</h2>
         <h2>{{ no_votes }} people voted no</h2>
-        <h3>{{ voting_status }}</h3>
+      </div>
+      <div class="col-md-8" ng-show="voting">
+        <h2>Voting in progress</h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="col-md-4">
+        <h2>Voters</h2>
+      </div>
+      <div class="col-md-8" ng-hide="voting">
+        <div ng-repeat="voter in voters">
+          <h3>{{ voter.name }}</h3>
+        </div>
       </div>
     </div>
 

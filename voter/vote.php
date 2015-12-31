@@ -13,16 +13,36 @@
   }
 
   $ballot = $_REQUEST["ballot"];
-  if ($ballot == "yes") {
-    $sql = "UPDATE votes SET yes = yes + 1";
-  } else if ($ballot == "no"){
-    $sql = "UPDATE votes SET no = no + 1";
-  }
-  $success = $conn->query($sql);
-  if ($success === TRUE) {
-    echo "success";
+  $name = $_REQUEST["name"];
+  $sql = "SELECT * FROM voters";
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    $voted = false;
+    while ($row = $result->fetch_assoc()) {
+      if ($row["name"] == $name) {
+        $voted = true;
+        break;
+      }
+    }
   } else {
-    echo "fail";
+    $voted = false;
+    $sql = "INSERT INTO voters VALUES ($name)";
+    $conn->query($sql);
+  }
+  if ($voted === false) {
+    if ($ballot == "yes") {
+      $sql = "UPDATE votes SET yes = yes + 1";
+    } else if ($ballot == "no"){
+      $sql = "UPDATE votes SET no = no + 1";
+    }
+    $success = $conn->query($sql);
+    if ($success === TRUE) {
+      echo "success";
+    } else {
+      echo "fail";
+    }
+  } else {
+    echo "revote";
   }
   $conn->close();
 ?>

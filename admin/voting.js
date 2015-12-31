@@ -1,6 +1,7 @@
 app.controller("voting", function ($scope) {
   $scope.voting = false;
   $scope.voting_status = "";
+  $scope.voters = [];
   $scope.btn_action = "Start";
   $scope.yes_votes = 0;
   $scope.no_votes = 0;
@@ -21,8 +22,10 @@ app.controller("voting", function ($scope) {
       $scope.voting = false;
       $scope.btn_action = "Start";
       $.get("getResults.php", null, function(result) {
-        $scope.yes_votes = result.yes;
-        $scope.no_votes = result.no;
+        var votes = result.votes;
+        $scope.voters = result.voters;
+        $scope.yes_votes = votes.yes;
+        $scope.no_votes = votes.no;
         $scope.voting_status = "";
         $scope.$apply();
       }, "json");
