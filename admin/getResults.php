@@ -17,7 +17,12 @@
   $votes = $result->fetch_assoc();
   $sql = "SELECT * FROM voters";
   $result = $conn->query($sql);
-  $voters = $result->fetch_assoc();
+  $voters = array();
+  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+      array_push($voters, $row.name);
+    }
+  }
   $data = array("votes"=>$votes, "voters"=>$voters);
   echo json_encode($data);
   $conn->close();
