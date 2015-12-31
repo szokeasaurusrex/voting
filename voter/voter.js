@@ -21,7 +21,7 @@ app.controller("voter", function($scope) {
       $scope.processing = true;
       var data = {
         ballot: "",
-        name: $scope.usr_name;
+        name: $scope.usr_name
       };
       data.ballot = ballot;
       $.get("vote.php", data, function(response) {
