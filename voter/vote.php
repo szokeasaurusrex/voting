@@ -13,7 +13,7 @@
   }
 
   $ballot = $_REQUEST["ballot"];
-  $name = (string) $_REQUEST["name"];
+  $name = $_REQUEST["name"];
   $sql = "SELECT * FROM voters";
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
@@ -28,7 +28,7 @@
     $voted = false;
   }
   if ($voted === false) {
-    $sql = "INSERT INTO voters VALUES ($name)";
+    $sql = "INSERT INTO voters VALUES (\"$name\")";
     if ($conn->query($sql) !== TRUE) {
       echo "Fail: " . $conn->error;
     }
