@@ -27,7 +27,7 @@ app.controller("voter", function($scope) {
       $.get("vote.php", data, function(response) {
         $scope.processing = false;
         if (response == "success") {
-          alert("You're vote was successfully processed.");
+          alert("Your vote was successfully processed.");
         } else if (response == "revote") {
           alert("Error: You have already voted.");
         } else if (response == "no_voting") {
