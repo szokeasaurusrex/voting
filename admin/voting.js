@@ -18,6 +18,12 @@ app.controller("voting", function ($scope) {
         }
         $scope.$apply();
       }, "text");
+      $scope.autoRefresh = setInterval(function() {
+        $.get("autoRefresh.php", null, function(result) {
+          $scope.voters = result;
+          $scope.$apply();
+        }, "json");
+      }, 500);
     } else {
       $scope.voting = false;
       $scope.btn_action = "Start";
